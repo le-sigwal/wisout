@@ -1,6 +1,7 @@
 //-------------------------------------------------------------------------
 /* File: wisout.cpp
  * Description: "WIth SOcket oUT" Project
+ *                Simple socket reset
  * Authors: Bagad Sigwal
  * Copyright: 2020 Sigwal.info/github - All Rights Reserved
  * Last modification: 10/04/2020
@@ -111,11 +112,4 @@ extern "C" int connect(SOCKET s,const struct sockaddr *name,int namelen){
 	return 0;
 }
 
-#endif
-
-#ifdef DVR_WISOUT
-int main() {
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
-	return 0;
-}
 #endif
