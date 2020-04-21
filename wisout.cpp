@@ -52,7 +52,6 @@ void wstprintfa(const char *cfichier, const char *cfonction){
 
 void wstprintfe(const char *cfichier, const char *cfonction){
 	wstfcn--; for(wstfci=0;wstfci<wstfcn;wstfci++){ std::cout<<"  "; }
-	printf("[<%s.%s]\n", cfichier, cfonction);
 	std::cout<<"[<"<<cfichier<<"."<<cfonction<<"]"<<std::endl;
 	std::cout.flush();
 }
