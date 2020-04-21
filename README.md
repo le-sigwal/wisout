@@ -1,3 +1,2 @@
 # wisout
-"WIth SOcket oUT" Project : simple socket reset...
-  
+"WIth SOcket oUT" Project (Simple Socket Reset)  
