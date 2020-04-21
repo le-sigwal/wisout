@@ -19,7 +19,7 @@
 //[>DEFINITIONS]
 //-------------------------------------------------------------------------
 //[>STANDARD DEFINITIONS]
-#include <stdio.h>
+#include <iostream>
 #ifdef WIN32
 #  include <winsock2.h>
 #  undef send
@@ -39,21 +39,22 @@
 //[>LOCAL DEFINITIONS]
 #define WISOUT_VERSION "20.04"
 //
-int wstfcn=0, wstfci; // function call level
+int wstfcn=0, wstfci;
 //-------------------------------------------------------------------------
 //[<DEFINITIONS]
 //-------------------------------------------------------------------------
 
 void wstprintfa(const char *cfichier, const char *cfonction){
-	for (wstfci=0;wstfci<wstfcn;wstfci++){ printf("  "); } wstfcn++;
-	printf("[>%s.%s]\n", cfichier, cfonction);
-	fflush(stdout); //[dvr]
+	for(wstfci=0;wstfci<wstfcn;wstfci++){ std::cout<<"  "; } wstfcn++;
+	std::cout<<"[>"<<cfichier<<"."<<cfonction<<"]"<<std::endl;
+	std::cout.flush();
 }
 
 void wstprintfe(const char *cfichier, const char *cfonction){
-	wstfcn--; for (wstfci=0;wstfci<wstfcn;wstfci++){ printf("  "); }
+	wstfcn--; for(wstfci=0;wstfci<wstfcn;wstfci++){ std::cout<<"  "; }
 	printf("[<%s.%s]\n", cfichier, cfonction);
-	fflush(stdout); //[dvr]
+	std::cout<<"[<"<<cfichier<<"."<<cfonction<<"]"<<std::endl;
+	std::cout.flush();
 }
 
 #ifdef WIN32
@@ -91,7 +92,7 @@ extern "C" int WSAStartup(WORD wVersionRequested,LPWSADATA lpWSAData){
 extern "C" struct hostent *gethostbyname(const char *name){
 	wstprintfa(__FILE__, __FUNCTION__);
 	wstprintfe(__FILE__, __FUNCTION__);
-	return 0;
+	return NULL;
 }
 
 extern "C" u_short htons(u_short hostshort){
