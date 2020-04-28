@@ -9,7 +9,7 @@
  *
  * Change records:
  * SWL - 10/04/2020 - creation, added main() for debug
- *                    added printfa(), printfe(),
+ *                    added wstprintfa(), wstprintfe(),
  *                    added send(), select(), recv(), closesocket(),
  *                      WSAStartup(), gethostbyname(), htons),
  *                      socket() & connect() for win32                   */
