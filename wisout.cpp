@@ -4,15 +4,16 @@
  *                Simple socket reset
  * Authors: Bagad Sigwal
  * Copyright: 2020 Sigwal.info/github - All Rights Reserved
- * Last modification: 10/04/2020
- * Version: 20.04
+ * Last modification: 12/05/2020
+ * Version: 20.05
  *
  * Change records:
  * SWL - 10/04/2020 - creation, added main() for debug
  *                    added wstprintfa(), wstprintfe(),
  *                    added send(), select(), recv(), closesocket(),
  *                      WSAStartup(), gethostbyname(), htons),
- *                      socket() & connect() for win32                   */
+ *                      socket() & connect() for win32
+ * SWL - 12/05/2020 - winsock2_wst.h inclusion                           */
 //-------------------------------------------------------------------------
 
 //-------------------------------------------------------------------------
@@ -21,23 +22,12 @@
 //[>STANDARD DEFINITIONS]
 #include <iostream>
 #ifdef WIN32
-#  include <winsock2.h>
-#  undef send
-#  undef select
-#  undef recv
-#  undef closesocket
-#  undef WSAStartup
-#  undef gethostbyname
-#  undef htons
-#  undef socket
-#  undef connect
-#  undef WINSOCK_API_LINKAGE
-#  define WINSOCK_API_LINKAGE
+#  include <winsock2_wst.h>
 #endif
 //[>EXTERN DEFINITIONS]
 //[>PROJECT DEFINITIONS]
 //[>LOCAL DEFINITIONS]
-#define WISOUT_VERSION "20.04"
+#define WISOUT_VERSION "20.05"
 //
 int wstfcn=0, wstfci;
 //-------------------------------------------------------------------------
@@ -82,7 +72,7 @@ extern "C" int closesocket(SOCKET s){
 	return 0;
 }
 
-extern "C" int WSAStartup(WORD wVersionRequested,LPWSADATA lpWSAData){
+extern "C" int WSAStartup(WORD wVersionRequested, LPWSADATA lpWSAData){
 	wstprintfa(__FILE__, __FUNCTION__);
 	wstprintfe(__FILE__, __FUNCTION__);
 	return 0;
