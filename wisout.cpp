@@ -8,7 +8,7 @@
  * Version: 20.05
  *
  * Change records:
- * SWL - 10/04/2020 - creation, added main() for debug
+ * SWL - 10/04/2020 - creation
  *                    added wstprintfa(), wstprintfe(),
  *                    added send(), select(), recv(), closesocket(),
  *                      WSAStartup(), gethostbyname(), htons),
