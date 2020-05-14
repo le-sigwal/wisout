@@ -3,12 +3,13 @@
  * Description:  winsock2 type definition
  *               "WIth SOcket oUT" Project (Simple socket reset)
  * Authors: Bagad Sigwal
- * Copyright: 2020 Sigwal.info/github - All Rights Reserved
- * Last modification: 12/05/2020
+ * Copyright: 2020 Sigwal.info/github, All Rights Reserved
+ * Last modification: 14/05/2020
  * Version: 20.05
  *
  * Change records:
- * SWL - 12/05/2020 - creation                                           */
+ * SWL - 12/05/2020 - creation
+ * SWL - 14/05/2020 - added __stdcall, WINAPI                            */
 //-------------------------------------------------------------------------
 
 #ifndef WINSOCK2_WST_H_
@@ -16,12 +17,19 @@
 
 typedef unsigned int	   u_int;
 typedef unsigned short	   u_short;
+typedef unsigned short     WORD;
 
 #  ifdef _WIN64
 typedef unsigned long long SOCKET;
+#    ifdef __stdcall
+#      undef __stdcall
+#    endif
+#    define __stdcall
 #  else
 typedef unsigned int       SOCKET;
 #  endif
+
+#define WINAPI __stdcall
 
 #  define FD_SETSIZE 64
 typedef struct fd_set_s {
@@ -34,8 +42,6 @@ struct timeval {
 	long tv_usec;
 };
 typedef struct timeval *PTIMEVAL;
-
-typedef unsigned short WORD;
 
 #define WSADESCRIPTION_LEN	256
 #define WSASYS_STATUS_LEN	128
