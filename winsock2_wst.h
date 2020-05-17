@@ -29,7 +29,7 @@ typedef unsigned long long SOCKET;
 typedef unsigned int       SOCKET;
 #  endif
 
-#define WINAPI __stdcall
+#  define WINAPI __stdcall
 
 #  define FD_SETSIZE 64
 typedef struct fd_set_s {
@@ -43,24 +43,24 @@ struct timeval {
 };
 typedef struct timeval *PTIMEVAL;
 
-#define WSADESCRIPTION_LEN	256
-#define WSASYS_STATUS_LEN	128
+#  define WSADESCRIPTION_LEN	256
+#  define WSASYS_STATUS_LEN	128
 typedef struct WSADATA_s {
 	WORD		wVersion;
 	WORD		wHighVersion;
-#ifdef _WIN64
+#  ifdef _WIN64
 	unsigned short	iMaxSockets;
 	unsigned short	iMaxUdpDg;
 	char		*lpVendorInfo;
 	char		szDescription[WSADESCRIPTION_LEN+1];
 	char		szSystemStatus[WSASYS_STATUS_LEN+1];
-#else
+#  else
 	char		szDescription[WSADESCRIPTION_LEN+1];
 	char		szSystemStatus[WSASYS_STATUS_LEN+1];
 	unsigned short	iMaxSockets;
 	unsigned short	iMaxUdpDg;
 	char		*lpVendorInfo;
-#endif
+#  endif
 } WSADATA, *LPWSADATA;
 
 struct hostent {
