@@ -3,18 +3,19 @@
  * Description: "WIth SOcket oUT" Project
  *                Simple socket reset
  * Authors: Bagad Sigwal
- * Copyright: 2020 Sigwal.info/github, All Rights Reserved
- * Last modification: 14/05/2020
- * Version: 20.05
+ * Copyright: 2020-2021 Sigwal.info/github, All rights reserved
+ * Last modification: 14/01/2021
+ * Version: 21.01
  *
  * Change records:
  * SWL - 10/04/2020 - creation
  *                    added wstprintfa(), wstprintfe(),
  *                    added send(), select(), recv(), closesocket(),
- *                      WSAStartup(), gethostbyname(), htons),
+ *                      WSAStartup(), gethostbyname(), htons(),
  *                      socket() & connect() for win32
  * SWL - 12/05/2020 - winsock2_wst.h inclusion
- * SWL - 14/05/2020 - added WINAPI                                       */
+ * SWL - 14/05/2020 - added WINAPI
+ * SWL - 14/01/2020 - added htonl() & ntohl()                            */
 //-------------------------------------------------------------------------
 
 //-------------------------------------------------------------------------
@@ -28,7 +29,7 @@
 //[>EXTERN DEFINITIONS]
 //[>PROJECT DEFINITIONS]
 //[>LOCAL DEFINITIONS]
-#define WISOUT_VERSION "20.05"
+#define WISOUT_VERSION "21.01"
 //
 int wstfcn=0, wstfci;
 //-------------------------------------------------------------------------
@@ -85,7 +86,19 @@ extern "C" struct hostent *WINAPI gethostbyname(const char *name){
 	return NULL;
 }
 
+extern "C" u_long WINAPI htonl(u_long hostlong){
+	wstprintfa(__FILE__, __FUNCTION__);
+	wstprintfe(__FILE__, __FUNCTION__);
+	return 0;
+}
+
 extern "C" u_short WINAPI htons(u_short hostshort){
+	wstprintfa(__FILE__, __FUNCTION__);
+	wstprintfe(__FILE__, __FUNCTION__);
+	return 0;
+}
+
+extern "C" u_long WINAPI ntohl(u_long netlong){
 	wstprintfa(__FILE__, __FUNCTION__);
 	wstprintfe(__FILE__, __FUNCTION__);
 	return 0;
