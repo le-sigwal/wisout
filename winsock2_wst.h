@@ -3,19 +3,21 @@
  * Description:  winsock2 type definition
  *               "WIth SOcket oUT" Project (Simple socket reset)
  * Authors: Bagad Sigwal
- * Copyright: 2020 Sigwal.info/github, All Rights Reserved
- * Last modification: 14/05/2020
- * Version: 20.05
+ * Copyright: 2020-2021 Sigwal.info/github, All rights reserved
+ * Last modification: 14/01/2021
+ * Version: 21.01
  *
  * Change records:
  * SWL - 12/05/2020 - creation
- * SWL - 14/05/2020 - added __stdcall, WINAPI                            */
+ * SWL - 14/05/2020 - added __stdcall, WINAPI
+ * SWL - 14/01/2021 - added u_long                                       */
 //-------------------------------------------------------------------------
 
 #ifndef WINSOCK2_WST_H_
 #  define WINSOCK2_WST_H_
 
 typedef unsigned int	   u_int;
+typedef unsigned long      u_long;
 typedef unsigned short	   u_short;
 typedef unsigned short     WORD;
 
